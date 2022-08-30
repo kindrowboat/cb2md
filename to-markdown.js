@@ -294,7 +294,7 @@ module.exports = [
   {
     filter: 'table',
     replacement: function (content) {
-      return '\n\n' + content + '\n\n'
+      return content
     }
   },
 
