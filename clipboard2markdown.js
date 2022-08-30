@@ -111,7 +111,7 @@
   var escape = function (str) {
     return str.replace(/[\u2018\u2019\u00b4]/g, "'")
               .replace(/[\u201c\u201d\u2033]/g, '"')
-              .replace(/[\u2212\u2022\u00b7\u25aa\u25cf]/g, '*')
+              .replace(/[\u2212\u2022\u00b7\u25aa\u25cf\u25cb]/g, '*')
               .replace(/[\u2013\u2015]/g, '--')
               .replace(/\u2014/g, '---')
               .replace(/\u2026/g, '...')
