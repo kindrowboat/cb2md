@@ -4,18 +4,14 @@
   // http://pandoc.org/README.html#pandocs-markdown
   var pandoc = [
     {
-      filter: 'h1',
+      filter: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       replacement: function (content, node) {
-        var underline = Array(content.length + 1).join('=');
-        return '\n\n' + content + '\n' + underline + '\n\n';
-      }
-    },
-
-    {
-      filter: 'h2',
-      replacement: function (content, node) {
-        var underline = Array(content.length + 1).join('-');
-        return '\n\n' + content + '\n' + underline + '\n\n';
+        var hLevel = node.nodeName.charAt(1)
+        var hPrefix = ''
+        for (var i = 0; i < hLevel; i++) {
+          hPrefix += '#'
+        }
+        return '\n\n' + hPrefix + ' ' + content + '\n\n'
       }
     },
 
@@ -91,7 +87,7 @@
       filter: 'li',
       replacement: function (content, node) {
         content = content.replace(/^\s+/, '').replace(/\n/gm, '\n    ');
-        var prefix = '-   ';
+        var prefix = '*  ';
         var parent = node.parentNode;
 
         if (/ol/i.test(parent.nodeName)) {

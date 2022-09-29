@@ -236,7 +236,8 @@ function cell (content, node) {
   var index = Array.prototype.indexOf.call(node.parentNode.childNodes, node)
   var prefix = ' '
   if (index === 0) prefix = '| '
-  return prefix + content + ' |'
+  console.log(content)
+  return prefix + content.trim().replace(/(?:\r\n|\r|\n)/g, '</br>') + ' |'
 }
 
 var highlightRegEx = /highlight highlight-(\S+)/
@@ -496,7 +497,7 @@ module.exports = [
   {
     filter: 'img',
     replacement: function (content, node) {
-      var alt = node.alt || ''
+      var alt = node.alt.trim().replace(/(?:\r\n|\r|\n)/g, '</br>') || ''
       var src = node.getAttribute('src') || ''
       var title = node.title || ''
       var titlePart = title ? ' "' + title + '"' : ''
