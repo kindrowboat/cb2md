@@ -234,10 +234,13 @@ module.exports = toMarkdown
 
 function cell (content, node) {
   var index = Array.prototype.indexOf.call(node.parentNode.childNodes, node)
+  var mdContent = content.trim()
+  if(!(1 == node.parentNode.childNodes.length == node.parentNode.parentNode.childNodes.length)) {
+    mdContent = mdContent.replace(/(?:\r\n|\r|\n)/g, '</br>')
+  }
   var prefix = ' '
   if (index === 0) prefix = '| '
-  console.log(content)
-  return prefix + content.trim().replace(/(?:\r\n|\r|\n)/g, '</br>') + ' |'
+  return prefix + mdContent + ' |'
 }
 
 var highlightRegEx = /highlight highlight-(\S+)/
