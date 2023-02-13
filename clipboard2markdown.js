@@ -46,7 +46,7 @@
     {
       filter: ['em', 'i', 'cite', 'var'],
       replacement: function (content) {
-        return '*' + content + '*';
+        return '_' + content + '_';
       }
     },
 
