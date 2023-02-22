@@ -52,17 +52,13 @@
 
     {
       filter: function (node) {
-        var hasSiblings = node.previousSibling || node.nextSibling;
-        var isCodeBlock = node.parentNode.nodeName === 'PRE' && !hasSiblings;
-        var isCodeElem = node.nodeName === 'CODE' ||
-            node.nodeName === 'KBD' ||
-            node.nodeName === 'SAMP' ||
-            node.nodeName === 'TT';
-
-        return isCodeElem && !isCodeBlock;
+        return node.nodeName === 'PRE';
       },
-      replacement: function (content) {
-        return '`' + content + '`';
+      replacement: function (content, node) {
+	var langNode = node.querySelector('span');
+	var lang = langNode ? langNode.textContent : '';
+	var code = node.querySelector('code').textContent;
+        return '```' + lang + '\n' + code + '```';
       }
     },
 

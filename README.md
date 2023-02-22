@@ -1,42 +1,9 @@
-clipboard2markdown
+PasteGPT
 ==================
 
-> Easily convert richly formatted text or HTML to
-> [Markdown](http://daringfireball.net/projects/markdown/syntax).
-> Use the clipboard and paste to Markdown with a single keypress.
->
-> The conversion is carried out by
-> [to-markdown](https://github.com/domchristie/to-markdown),
-> a Markdown converter running in the browser.
+A hacked-on clipboard2markdown tool for converting ChatGPT convos to markdown.
 
-Demo
-----
-
-### Interactive
-
-<http://euangoddard.github.io/clipboard2markdown/>
-
-### Video
-
-![Screencast](screencast.gif)
-
-Usage
------
-
-Open [index.html](index.html) in a favorite browser and hit `Ctrl+C`
-(or `⌘+C` on Mac).
-
-To copy the converted Markdown to the clipboard, press `Ctrl+A`
-followed by `Ctrl+C` (or `⌘+A` and `⌘+C` on Mac).
-
-One can paste multiple times. This overwrites the previous conversion.
-
-### Tested browsers
-
--   Chrome 33 (Linux and OS X)
--   Firefox 27 (Linux)
--   Safari 5 (OS X)
--   Internet Explorer 11 (Windows)
+<http://kindrowboat.github.io/pastegpt/>
 
 About
 -----
